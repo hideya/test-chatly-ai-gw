@@ -15,7 +15,7 @@ export const getOpenAIResponse = async (message: string): Promise<string> => {
     });
 
     if (response.data.choices && response.data.choices.length > 0) {
-      return response.data.choices[0].text.trim();
+      return response.data.choices[0].text?.trim() ?? '';
     } else {
       throw new Error('No choices found in OpenAI response');
     }
