@@ -6,7 +6,7 @@ import { fetchChatHistory, fetchChatThread, sendMessage } from '../services/api'
 
 const ChatScreen: React.FC = () => {
   const [chatHistory, setChatHistory] = useState([]);
-  const [selectedThread, setSelectedThread] = useState(null);
+  const [selectedThread, setSelectedThread] = useState<string | null>(null);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
