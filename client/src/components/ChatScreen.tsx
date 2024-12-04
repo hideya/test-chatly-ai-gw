@@ -25,6 +25,10 @@ const ChatScreen: React.FC = () => {
   };
 
   const handleSendMessage = async (message: string) => {
+    if (selectedThread === null) {
+      console.error('No thread selected');
+      return;
+    }
     const response = await sendMessage(selectedThread, message);
     setMessages([...messages, { sender: 'user', text: message }, { sender: 'ai', text: response }]);
   };
