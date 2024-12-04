@@ -33,7 +33,7 @@ router.post('/continue', async (req, res) => {
   }
 
   try {
-    const chatThread = await ChatThread.findThreadByPk(threadId);
+    const chatThread = await ChatThread.findThreadByPk(Number(threadId));
 
     if (!chatThread) {
       return res.status(404).json({ message: 'Chat thread not found' });
@@ -65,7 +65,7 @@ router.delete('/delete/:threadId', async (req, res) => {
   const { threadId } = req.params;
 
   try {
-    const chatThread = await ChatThread.findThreadByPk(threadId);
+    const chatThread = await ChatThread.findThreadByPk(Number(threadId));
 
     if (!chatThread) {
       return res.status(404).json({ message: 'Chat thread not found' });
