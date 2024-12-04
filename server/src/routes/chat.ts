@@ -14,7 +14,7 @@ router.post('/start', async (req, res) => {
   }
 
   try {
-    const chatThread = await ChatThread.create({ userId, messages: [{ sender: 'user', text: message }] });
+    const chatThread = await ChatThread.createThread({ userId, messages: [{ sender: 'user', text: message }] });
     const aiResponse = await getOpenAIResponse(message);
     chatThread.messages.push({ sender: 'ai', text: aiResponse });
     await chatThread.save();
@@ -33,7 +33,7 @@ router.post('/continue', async (req, res) => {
   }
 
   try {
-    const chatThread = await ChatThread.findByPk(threadId);
+    const chatThread = await ChatThread.findThreadByPk(threadId);
 
     if (!chatThread) {
       return res.status(404).json({ message: 'Chat thread not found' });
@@ -54,7 +54,7 @@ router.get('/history/:userId', async (req, res) => {
   const { userId } = req.params;
 
   try {
-    const chatThreads = await ChatThread.findAll({ where: { userId }, order: [['createdAt', 'DESC']] });
+    const chatThreads = await ChatThread.findAllThreads({ where: { userId }, order: [['createdAt', 'DESC']] });
     res.status(200).json({ chatThreads });
   } catch (error) {
     res.status(500).json({ message: 'Error retrieving chat history', error });
@@ -65,7 +65,7 @@ router.delete('/delete/:threadId', async (req, res) => {
   const { threadId } = req.params;
 
   try {
-    const chatThread = await ChatThread.findByPk(threadId);
+    const chatThread = await ChatThread.findThreadByPk(threadId);
 
     if (!chatThread) {
       return res.status(404).json({ message: 'Chat thread not found' });

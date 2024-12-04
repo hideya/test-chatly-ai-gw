@@ -1,4 +1,4 @@
-import { DataTypes, Model, Optional } from 'sequelize';
+import { DataTypes, Model, Optional, Sequelize } from 'sequelize';
 import { getDb } from '../services/database';
 
 const sequelize = getDb();
@@ -17,7 +17,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
   public password!: string;
 }
 
-User.init(
+User.initModel(
   {
     id: {
       type: DataTypes.INTEGER,
