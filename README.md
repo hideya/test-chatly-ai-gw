@@ -21,13 +21,19 @@ cd client
 npm install
 ```
 
-3. Start the development server:
+3. Build the client application:
+
+```bash
+npm run build
+```
+
+4. Start the development server:
 
 ```bash
 npm start
 ```
 
-4. Clean the generated files:
+5. Clean the generated files:
 
 ```bash
 npm run clean
@@ -57,7 +63,13 @@ cd server
 npm install
 ```
 
-3. Set up the environment variables:
+3. Build the server application:
+
+```bash
+npm run build
+```
+
+4. Set up the environment variables:
 
 Copy the `.env.template` file to `.env` in the `server` directory:
 
@@ -71,13 +83,13 @@ Fill in your OpenAI API key in the `.env` file:
 OPENAI_API_KEY=your_openai_api_key
 ```
 
-4. Start the server:
+5. Start the server:
 
 ```bash
 npm start
 ```
 
-5. Clean the generated files:
+6. Clean the generated files:
 
 ```bash
 npm run clean
