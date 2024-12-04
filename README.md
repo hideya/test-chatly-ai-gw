@@ -21,19 +21,25 @@ cd client
 npm install
 ```
 
-3. Build the client application:
+3. Set the `NODE_OPTIONS` environment variable to use legacy OpenSSL providers:
+
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+
+4. Build the client application:
 
 ```bash
 npm run build
 ```
 
-4. Start the development server:
+5. Start the development server:
 
 ```bash
 npm start
 ```
 
-5. Clean the generated files:
+6. Clean the generated files:
 
 ```bash
 npm run clean
