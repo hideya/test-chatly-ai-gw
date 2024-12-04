@@ -7,7 +7,7 @@ import { fetchChatHistory, fetchChatThread, sendMessage } from '../services/api'
 const ChatScreen: React.FC = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [selectedThread, setSelectedThread] = useState<string | null>(null);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<{ sender: string; text: string }[]>([]);
 
   useEffect(() => {
     const loadChatHistory = async () => {
