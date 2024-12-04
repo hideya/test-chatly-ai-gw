@@ -77,10 +77,11 @@ Copy the `.env.template` file to `.env` in the `server` directory:
 cp .env.template .env
 ```
 
-Fill in your OpenAI API key in the `.env` file:
+Fill in your OpenAI API key and the server port in the `.env` file:
 
 ```
 OPENAI_API_KEY=your_openai_api_key
+PORT=5000
 ```
 
 5. Start the server:
@@ -95,4 +96,4 @@ npm start
 npm run clean
 ```
 
-The server should now be running at `http://localhost:5000`.
+The server should now be running at `http://localhost:5000` (or the port specified in the `.env` file).
