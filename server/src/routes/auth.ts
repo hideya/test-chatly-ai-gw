@@ -44,7 +44,11 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid password' });
     }
 
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    if (!process.env.JWT_SECRET) {
+      throw new Error('JWT_SECRET is not set');
+    }
+
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!, { expiresIn: '1h' });
 
     res.status(200).json({ message: 'Login successful', token });
   } catch (error) {
