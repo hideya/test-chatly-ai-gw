@@ -27,6 +27,12 @@ npm install
 npm start
 ```
 
+4. Clean the generated files:
+
+```bash
+npm run clean
+```
+
 The client application should now be running at `http://localhost:3000`.
 
 ## Server Side
@@ -69,6 +75,12 @@ OPENAI_API_KEY=your_openai_api_key
 
 ```bash
 npm start
+```
+
+5. Clean the generated files:
+
+```bash
+npm run clean
 ```
 
 The server should now be running at `http://localhost:5000`.
