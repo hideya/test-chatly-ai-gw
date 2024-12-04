@@ -53,13 +53,17 @@ npm install
 
 3. Set up the environment variables:
 
-Create a `.env` file in the `server` directory and add the following:
+Copy the `.env.template` file to `.env` in the `server` directory:
+
+```bash
+cp .env.template .env
+```
+
+Fill in your OpenAI API key in the `.env` file:
 
 ```
 OPENAI_API_KEY=your_openai_api_key
 ```
-
-Replace `your_openai_api_key` with your actual OpenAI API key.
 
 4. Start the server:
 
