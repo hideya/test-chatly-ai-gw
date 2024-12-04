@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   try {
-    const user = await User.create({ username, password: hashedPassword });
+    const user = await User.createUser({ username, password: hashedPassword });
     res.status(201).json({ message: 'User registered successfully', user });
   } catch (error) {
     res.status(500).json({ message: 'Error registering user', error });
@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    const user = await User.findOne({ where: { username } });
+    const user = await User.findUser({ where: { username } });
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });

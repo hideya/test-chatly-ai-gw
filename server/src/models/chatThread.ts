@@ -1,4 +1,4 @@
-import { DataTypes, Model, Optional } from 'sequelize';
+import { DataTypes, Model, Optional, Sequelize } from 'sequelize';
 import { getDb } from '../services/database';
 
 const sequelize = getDb();
@@ -21,7 +21,7 @@ class ChatThread extends Model<ChatThreadAttributes, ChatThreadCreationAttribute
   public updatedAt!: Date;
 }
 
-ChatThread.init(
+ChatThread.initModel(
   {
     id: {
       type: DataTypes.INTEGER,
